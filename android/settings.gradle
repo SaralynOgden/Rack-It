@@ -1,0 +1,3 @@
+rootProject.name = 'Q4_project'
+
+include ':app'

@@ -6,13 +6,17 @@ import {
 
 import Header from './Header';
 
+import styles from './stylesheets/about';
+
 export default class About extends Component {
   render() {
     return (
       <View>
-        <Header />
-        <Text>About</Text>
-        <Text>Blah, blah, blah</Text>
+        <Header navigator={this.props.navigator}/>
+        <View style={styles.belowHeader}>
+          <Text>About</Text>
+          <Text>Blah, blah, blah</Text>
+        </View>
       </View>
     );
   }

@@ -9,12 +9,17 @@ import {
   View
 } from 'react-native';
 
+import styles from './stylesheets/landing';
+
+//AIzaSyBosHnFZanVfTcY5hXMRUTsi64ujz5yewI
+
 export default class Landing extends Component {
   navigate(routeName) {
-    this.props.navigator.push({ name: routeName });
+    this.props.navigator.push({ name: routeName});
   }
 
   render() {
+
     return (
       <View style={styles.container}>
         <View style={styles.content}>
@@ -36,7 +41,7 @@ export default class Landing extends Component {
               placeholder="Type location..."
               onChangeText={(text) => this.setState({text})}></TextInput>
             <TouchableHighlight style={styles.submitButton}
-                                onPress={this.navigate.bind(this, 'map')}>
+                      onPress={this.navigate.bind(this, 'map', this.setThefts)}>
               <Text style={styles.buttonText}>submit</Text>
             </TouchableHighlight>
           </View>
@@ -45,62 +50,3 @@ export default class Landing extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
-  },
-  content: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  logo: {
-    color: 'green',
-    fontSize: 45,
-    fontFamily: 'Heiti SC'
-  },
-  bike: {
-    marginTop: 10,
-    width: 160,
-    height: 80,
-    marginVertical: 10
-  },
-  button: {
-    backgroundColor: 'green',
-    marginTop: 15,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 5
-  },
-  buttonText: {
-    fontFamily: 'Heiti SC',
-    color: 'white',
-    fontSize: 16
-  },
-  addressInput: {
-    borderWidth: 1,
-    borderRadius: 5,
-    width: 300,
-    height: 30,
-    marginTop: 15,
-    flexDirection: 'row'
-  },
-  textInput: {
-    fontSize: 16,
-    width: 225,
-    height: 30,
-    paddingLeft: 5
-  },
-  submitButton: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: 'green',
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 5
-  }
-});

@@ -52,8 +52,7 @@ ${moment(thefts[mostRecentDateIndex].occurred_date_range_end)
       <View>
         <Header navigator={this.props.navigator}/>
         <View style={styles.belowHeader}>
-          <Image source={{uri: 'http://www.sitescapesonline.com/images/bike-racks.png'}}
-                 style={styles.bikeRack}/>
+          <Text style={[styles.text, styles.title]}>Rack Description</Text>
           <View style={styles.table}>
             <Text style={styles.row}>
               <Text style={styles.rackPropertyTitle}>Rack Capacity: </Text>
@@ -74,7 +73,7 @@ ${moment(thefts[mostRecentDateIndex].occurred_date_range_end)
               </Text>
             </Text>
             <Text style={styles.row}>
-              <Text style={styles.rackPropertyTitle}>Thefts Within 100yd:</Text>
+              <Text style={styles.rackPropertyTitle}>Thefts Within 100m:</Text>
               <Text style={styles.rackPropertyDesc}>
                 {this.props.thefts.length}
               </Text>

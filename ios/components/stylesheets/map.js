@@ -15,21 +15,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 100,
     borderWidth: 1,
-    borderColor: 'white',
+    borderColor: 'black',
     backgroundColor: '#006400',
-    width: 24,
-    height: 24
-  },
-  markerText: {
-    color: 'white',
-    fontSize: 12,
-    fontWeight: '900'
+    width: 20,
+    height: 20
   },
   warning: {
     backgroundColor: '#ff2424'
   },
   caution: {
-    backgroundColor: 'yellow'
+    backgroundColor: '#ffc300',
   },
   message: {
     position: 'absolute',

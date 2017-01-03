@@ -3,47 +3,51 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   belowHeader: {
     position: 'absolute',
-    top: 60,
+    top: 50,
     left: 0,
     flex: 1,
+    width: 380,
     justifyContent: 'center',
     alignItems: 'center'
   },
   text: {
-    paddingHorizontal: 10,
-    fontFamily: 'Heiti SC',
-    fontSize: 16
+    fontSize: 16,
+    fontFamily: 'Heiti SC'
   },
   title: {
     fontSize: 40,
     color: 'green'
   },
-  column: {
-    marginVertical: 15
+  categoryTitle: {
+    fontWeight: 'bold'
+  },
+  textInputContainer: {
+    justifyContent: 'center'
+  },
+  textInput: {
+    fontSize: 16,
+    width: 250,
+    height: 30,
+    borderWidth: 1,
+    marginTop: 15
   },
   row: {
-    width: 375,
-    height: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-around'
+    height: 300,
+    width: 380
   },
-  marker: {
-    borderRadius: 100,
-    borderWidth: 1,
-    borderColor: 'black',
-    backgroundColor: '#006400',
-    width: 20,
-    height: 20
+  col: {
+    height: 300,
+    width: 190,
+    alignItems: 'center'
   },
-  yellowMarker: {
-    backgroundColor: '#ffc300'
+  picker: {
+    width: 100,
+    height: 200
   },
-  redMarker: {
-    backgroundColor: '#ff2424'
-  },
-  sectionTitle: {
+  item: {
     fontSize: 20,
-    color: 'green'
+    fontFamily: 'Heiti SC',
+    fontWeight: 'bold',
   },
   button: {
     backgroundColor: 'green',

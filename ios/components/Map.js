@@ -20,20 +20,9 @@ export default class Map extends Component {
     axios.get(`http://localhost:8000/racks/${this.props.location.latitude}/${this.props.location.longitude}`)
       .then((racksObj) => {
         const racks = racksObj.data;
-        axios.all(racks.map((rack) => {
-          const lat = rack.location.coordinates[1];
-          const long = rack.location.coordinates[0]
-          return axios.get(`http://localhost:8000/thefts/${lat}/${long}`)
-        }))
-          .then((thefts) => {
-            for (let i = 0; i < racks.length; i++) {
-              racks[i]['thefts'] = thefts[i].data;
-            }
-            this.props.setRacks(racks);
-          })
-          .catch((error) => console.log(error));
+        this.props.setRacks(racks);
       })
-      .catch((error) => console.log(error));
+      .catch((err) => console.log(err));
   }
 
   getMarkerColor(rack) {
@@ -59,11 +48,10 @@ export default class Map extends Component {
                                         longitude: rack.location.coordinates[0],
                                         latitude: rack.location.coordinates[1]
                           }}
-                                        key={`#${i}_rack`}>
+                        key={`#${i}_rack`}>
                   <TouchableHighlight style={[styles.marker, style]}
                         onPress={this.navigate.bind(this, 'description', rack)}>
-                    <Text style={styles.markerText}>
-                      {i + 1}
+                    <Text>
                     </Text>
                   </TouchableHighlight>
            </MapView.Marker>;

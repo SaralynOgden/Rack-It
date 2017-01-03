@@ -3,10 +3,19 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   belowHeader: {
     position: 'absolute',
-    top: 70,
+    top: 60,
     left: 0,
     flex: 1,
     margin: 10
+  },
+  text: {
+    fontSize: 16,
+    fontFamily: 'Heiti SC'
+  },
+  title: {
+    fontSize: 40,
+    color: 'green',
+    marginBottom: 10
   },
   bikeRack: {
     width: 50,
@@ -14,7 +23,6 @@ const styles = StyleSheet.create({
   },
   rackPropertyTitle: {
     fontSize: 18,
-    color: 'green'
   },
   rackPropertyDesc: {
     fontSize: 15,

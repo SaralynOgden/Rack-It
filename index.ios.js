@@ -9,6 +9,7 @@ import Description from './ios/components/Description';
 import Landing from './ios/components/Landing';
 import Map from './ios/components/Map';
 import Rack from './ios/components/Rack';
+import RackForm from './ios/components/RackForm';
 
 export default class Q4_project extends Component {
   constructor() {
@@ -19,9 +20,12 @@ export default class Q4_project extends Component {
         longitude: -111.579272,
         latitude: 40.155145
       },
-      racks: []
+      racks: [],
+      userAddress: ''
     }
+    this.setLocation = this.setLocation.bind(this);
     this.setRacks = this.setRacks.bind(this);
+    this.setUserAddress = this.setUserAddress.bind(this);
   }
 
   renderScene(route, navigator) {
@@ -38,25 +42,26 @@ export default class Q4_project extends Component {
                     racks={this.state.racks} />
       case 'rack':
         return <Rack navigator={navigator} />
+      case 'rackForm':
+        return <RackForm navigator={navigator} />
       default:
-        return <Landing navigator={navigator} />
+        return <Landing navigator={navigator}
+                        setLocation={this.setLocation}
+                        setUserAddress={this.setUserAddress}
+                        userAddress={this.state.userAddress}/>
     }
+  }
+
+  setLocation(location) {
+    this.setState({ location });
   }
 
   setRacks(racks) {
     this.setState({ racks });
   }
 
-  componentDidMount() {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        this.setState({ location:
-                          { latitude: position.coords.latitude,
-                            longitude: position.coords.longitude }});
-      },
-      (error) => alert('error.message'),
-      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
-    );
+  setUserAddress(userAddress) {
+    this.setState({ userAddress });
   }
 
   render() {

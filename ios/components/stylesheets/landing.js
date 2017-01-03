@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   bike: {
     marginTop: 10,
     width: 160,
-    height: 80,
+    height: 100,
     marginVertical: 10
   },
   button: {

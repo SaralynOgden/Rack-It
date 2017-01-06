@@ -37,7 +37,8 @@ export default class RackForm extends Component {
 
   submitIfCorrect() {
     if (this.state.address === '') {
-      console.log('this address is not valid');
+      alert('this address is not valid');
+      return;
     }
     const base = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
     const key = 'AIzaSyD__S3MjxXvboBp1-iO-jfP9qe1bLd25B0';
@@ -53,13 +54,16 @@ export default class RackForm extends Component {
                   coordinates: [geocodedAddress.geometry.location.lng,
                                 geocodedAddress.geometry.location.lat]
           };
-          axios.post('http://localhost:8000/racks/', {
+          axios.post('https://rack-it.herokuapp.com/racks/', {
             address: this.state.address,
             color: this.state.color,
             location,
             rackCapacity: this.state.rackCapacity
           })
-          .catch((err) => console.log(err));
+          .then((_postedRack) => {
+            alert(`rack posted at ${this.state.address}`);
+          })
+          .catch((err) => alert('rack could not be posted'));
         }
       })
       .catch((err) => console.log(err));
@@ -114,9 +118,6 @@ export default class RackForm extends Component {
                 *rack capacity
               </Text>
             </View>
-          </Text>
-          <Text style={[styles.text, styles.categoryTitle]}>
-            image (.png or .jpg)
           </Text>
           <TouchableHighlight style={styles.button}
                               onPress={this.submitIfCorrect.bind(this)}>

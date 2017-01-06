@@ -8,7 +8,6 @@ import About from './ios/components/About';
 import Description from './ios/components/Description';
 import Landing from './ios/components/Landing';
 import Map from './ios/components/Map';
-import Rack from './ios/components/Rack';
 import RackForm from './ios/components/RackForm';
 
 export default class Q4_project extends Component {

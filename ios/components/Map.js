@@ -17,9 +17,12 @@ import Header from './Header';
 export default class Map extends Component {
 
   componentDidMount() {
-    axios.get(`http://localhost:8000/racks/${this.props.location.latitude}/${this.props.location.longitude}`)
+    axios.get(`https://rack-it.herokuapp.com/racks/${this.props.location.latitude}/${this.props.location.longitude}`)
       .then((racksObj) => {
         const racks = racksObj.data;
+        if (racks.length === 0) {
+          alert('there are no bike racks within 770m');
+        }
         this.props.setRacks(racks);
       })
       .catch((err) => console.log(err));
@@ -70,11 +73,11 @@ export default class Map extends Component {
                    longitude: this.props.location.longitude,
                    latitudeDelta: 0.0042,
                    longitudeDelta: 0.0028}}>
-          <MapView.Marker coordinate={{
-                              latitude: this.props.location.latitude,
-                              longitude: this.props.location.longitude}}
-                          image={require('./star.png')}/>
             {this.plotRacks()}
+            <MapView.Marker coordinate={{
+                                latitude: this.props.location.latitude,
+                                longitude: this.props.location.longitude}}
+                            image={require('./star.png')}/>
         </MapView>
         <Header navigator={this.props.navigator}/>
         <Text style={styles.message}>Click on a marker to get more info</Text>

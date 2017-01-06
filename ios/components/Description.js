@@ -20,7 +20,7 @@ export default class Description extends Component {
     let mostRecentDate;
     let mostRecentDateIndex = -1;
     for(let i = 0; i < thefts.length; i++) {
-      if (thefts[i].hasOwnProperty.occurred_date_range_end) {
+      if (thefts[i].hasOwnProperty('occurred_date_range_end')) {
         const theftDate = Date.parse(thefts[i].occurred_date_range_end);
         if (theftDate > mostRecentDate || !mostRecentDate) {
               mostRecentDate = theftDate;
@@ -34,15 +34,14 @@ export default class Description extends Component {
         }
       }
     }
-
-    if (thefts[mostRecentDateIndex].hasOwnProperty.occurred_date_range_end) {
-      return `between ${moment(thefts[mostRecentDateIndex]
-                      .occurred_date_range_start).format('MM/DD/YYYY')} and /
-${moment(thefts[mostRecentDateIndex].occurred_date_range_end)
-                                    .format('MM/DD/YYYY')}`;
+    const startDate = moment(thefts[mostRecentDateIndex]
+                      .occurred_date_range_start).format('MMMM Do YYYY, ha');
+    if (thefts[mostRecentDateIndex].hasOwnProperty('occurred_date_range_end')) {
+      const endDate = moment(thefts[mostRecentDateIndex]
+                      .occurred_date_range_end).format('MMMM Do YYYY, ha');
+      return `between ${startDate} and ${endDate}`;
     } else {
-      return `${moment(thefts[mostRecentDateIndex].occurred_date_range_start)
-                                                  .format('MM/DD/YYYY')}`;
+      return startDate;
     }
   }
 

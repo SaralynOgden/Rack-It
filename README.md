@@ -1,5 +1,5 @@
-![Rack-It add a rack](./Rack-It add a rack)
-![Rack-It main functionality](Rack-It Main functionality)
+![Rack-It add a rack](./Rack-It-add-a-rack.gif)
+![Rack-It main functionality](Rack-It-main-functionality.gif)
 
 This app helps cyclists find safe bike racks in their proximity. A user can search a location (currently only in Seattle) and it will show the closest bike racks. The racks are color-coded according to how many bike thefts have occurred within 100 meters.
 
